@@ -10,7 +10,7 @@ import cerberus
 
 import schema
 
-philly = "philadelphia_pennsylvania.osm" ####NOTE: CHANGE THIS TO "sample.osm". I AM LEAVING IT AS IS IN MY PRESNETATION TO SHOW THE CODE I WORKED WITH 
+philly = "sample.osm" 
 
 NODES_PATH = "nodes.csv"
 NODE_TAGS_PATH = "nodes_tags.csv"
@@ -25,7 +25,7 @@ WAY_TAGS_PATH = "ways_tags.csv"
 
 import xml.etree.ElementTree as ET  # Use cElementTree or lxml if too slow
 
-OSM_FILE = "philadelphia_pennsylvania.osm" #####NOTE: CHANGE THIS TO "sample.osm"
+OSM_FILE = "sample.osm"
 SAMPLE_FILE = "sample.osm"
 
 k = 10 # Parameter: take every k-th top level element
@@ -55,7 +55,7 @@ with open(SAMPLE_FILE, 'wb') as output:
     output.write('</osm>')
 
 
-#######################################################################COUNTING TAGS######3#####################################################
+#######################################################################COUNTING XML TAGS############################################################
 def count_tags(filename):
     tags = {}
     for i, element in enumerate(get_element(filename)):
@@ -202,10 +202,10 @@ def update_postcode(postcode):
     clean_postcode2 = re.findall(r'(\d{5}).\d{4}$', postcode)
     if clean_postcode:
         cleaned_postcode = clean_postcode[0]
-        return clean_postcode
+        return cleaned_postcode
     elif clean_postcode2:
         cleaned_postcode = clean_postcode2[0]
-        return clean_postcode2
+        return cleaned_postcode
     else:
         return postcode
 
